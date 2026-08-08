@@ -15,16 +15,25 @@
   --color-brand-900: oklch(0.3 0.09 250);
 
   --color-ink: oklch(0.22 0.02 260);
-  --color-ink-muted: oklch(0.5 0.02 260);
-  --color-surface: oklch(1 0 0);
-  --color-surface-subtle: oklch(0.98 0.005 260);
+  /* Bewusst dunkler als ein uebliches Grau: Sekundaertext muss auch auf dem
+     himmelblauen Hintergrund noch 4.5:1 Kontrast erreichen (WCAG AA). */
+  --color-ink-muted: oklch(0.42 0.03 260);
+
+  /* Himmelblau (entspricht #87CEEB) als Seitenhintergrund. */
+  --color-surface: oklch(0.815 0.082 226);
+  /* Hellere Variante fuer abgesetzte Sektionen und den Footer. */
+  --color-surface-subtle: oklch(0.88 0.055 226);
+  /* Karten heben sich weiss vom blauen Hintergrund ab. */
+  --color-card: oklch(1 0 0);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
+  /* Auch auf html setzen, damit beim Overscroll kein weisser Rand aufblitzt. */
   html {
     scroll-behavior: smooth;
+    background-color: var(--color-surface);
   }
 
   body {

@@ -13,7 +13,7 @@ export function Features() {
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="rounded-2xl bg-surface-subtle p-8 ring-1 ring-black/5"
+            className="rounded-2xl bg-card p-8 ring-1 ring-black/5"
           >
             <h3 className="text-lg font-semibold">{feature.title}</h3>
             <p className="mt-3 text-ink-muted">{feature.description}</p>

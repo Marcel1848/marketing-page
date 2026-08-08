@@ -17,7 +17,7 @@ export function Pricing() {
           <div
             key={plan.name}
             className={cn(
-              "flex flex-col rounded-2xl bg-white p-8",
+              "flex flex-col rounded-2xl bg-card p-8",
               plan.highlighted
                 ? "ring-2 ring-brand-600"
                 : "ring-1 ring-black/5",

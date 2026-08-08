@@ -12,7 +12,7 @@ export function Testimonials() {
         {/* Index als key: Die Liste ist statisch und wird nicht umsortiert,
             und Namen sind nicht zwingend eindeutig. */}
         {testimonials.map((testimonial, index) => (
-          <figure key={index} className="rounded-2xl p-8 ring-1 ring-black/5">
+          <figure key={index} className="rounded-2xl bg-card p-8 ring-1 ring-black/5">
             <blockquote className="text-lg text-pretty">
               &bdquo;{testimonial.quote}&ldquo;
             </blockquote>

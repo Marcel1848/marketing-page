@@ -52,6 +52,15 @@ Browser-APIs zwingend nötig sind (aktuell einzig `components/header.tsx`).
 Also `bg-brand-600`, `text-ink-muted`, `bg-surface-subtle` statt `bg-blue-600`
 oder Hex-Werte im JSX. Neue Farbe = neues Token, nicht Inline-Style.
 
+Der Seitenhintergrund ist himmelblau (`--color-surface`), abgesetzte Sektionen
+nutzen die hellere `--color-surface-subtle`, Karten stehen weiss darauf
+(`bg-card`). Deshalb kein `bg-white` im JSX — sonst lässt sich der Hintergrund
+später nicht mehr an einer Stelle umstellen.
+
+**Bei Farbänderungen den Kontrast nachrechnen.** Auf dem hellen Blau erreichen
+viele Grautöne die geforderten 4.5:1 nicht mehr; `--color-ink-muted` und die
+Eyebrow-Farbe (`text-brand-800`) sind bereits darauf abgestimmt.
+
 **Neue Sektion anlegen:**
 1. Inhalt als Export in `content/site.ts`
 2. Komponente unter `components/sections/<name>.tsx`, gewrappt in `<Section>`
