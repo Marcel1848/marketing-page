@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Design-Tokens: hier zentral anpassen, nicht in einzelnen Komponenten.
+   Alles darunter ist als Tailwind-Utility verfuegbar, z. B. bg-brand-600, text-ink. */
+@theme {
+  --color-brand-50: oklch(0.97 0.02 250);
+  --color-brand-100: oklch(0.93 0.04 250);
+  --color-brand-200: oklch(0.87 0.07 250);
+  --color-brand-300: oklch(0.79 0.11 250);
+  --color-brand-400: oklch(0.7 0.15 250);
+  --color-brand-500: oklch(0.62 0.18 250);
+  --color-brand-600: oklch(0.54 0.19 250);
+  --color-brand-700: oklch(0.46 0.17 250);
+  --color-brand-800: oklch(0.38 0.13 250);
+  --color-brand-900: oklch(0.3 0.09 250);
+
+  --color-ink: oklch(0.22 0.02 260);
+  --color-ink-muted: oklch(0.5 0.02 260);
+  --color-surface: oklch(1 0 0);
+  --color-surface-subtle: oklch(0.98 0.005 260);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Anker-Sprunge nicht unter den Sticky-Header laufen lassen */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
