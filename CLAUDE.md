@@ -79,11 +79,44 @@ Eyebrow-Farbe (`text-brand-800`) sind bereits darauf abgestimmt.
 **Sprache:** Sämtliche UI-Texte auf Deutsch, `lang="de"`. Code, Variablennamen
 und Kommentare ebenfalls, soweit sinnvoll.
 
+## Änderungen veröffentlichen (Standardablauf)
+
+**Jede fertig umgesetzte Änderung wird committet und auf `main` gepusht** — ohne
+vorher nachzufragen. Der Push löst auf Vercel automatisch ein Produktions-Deployment
+aus; damit ist jede Änderung unmittelbar online. Das ist der gewünschte
+Regelablauf, nicht die Ausnahme.
+
+Ablauf nach jeder abgeschlossenen Aufgabe:
+
+```bash
+npm run build && git add -A && git commit -m "<Beschreibung>" && git push
+```
+
+Dabei gilt:
+
+1. **Der Build muss vorher fehlerfrei durchlaufen.** Ein kaputter Build wird nicht
+   gepusht — er würde auf Vercel abbrechen und im schlimmsten Fall eine defekte
+   Version live stellen.
+2. **„Fertig umgesetzt" heisst verifiziert**, nicht Zwischenstand. Halbfertige oder
+   ungetestete Arbeit bleibt lokal.
+3. **Commit-Nachrichten auf Deutsch**, im Imperativ und inhaltlich (was und warum),
+   nicht „Update" oder „Änderungen".
+4. **`main` ist der Produktionszweig.** Es gibt keine Staging-Stufe — was gepusht
+   wird, ist live.
+5. **Keine Secrets committen.** `.env` und `.env*.local` stehen in `.gitignore`;
+   echte Werte gehören in die Vercel-Projekteinstellungen.
+
+Ausgenommen bleiben Aktionen, die sich nicht ohne Weiteres rückgängig machen
+lassen: `git push --force`, das Umschreiben bereits gepushter Historie oder das
+Löschen von Branches. Diese vorher abstimmen.
+
 ## Deployment
 
 Vercel erkennt Next.js automatisch, kein zusätzliches Setup. `NEXT_PUBLIC_SITE_URL`
 in den Vercel-Projekteinstellungen setzen (siehe `.env.example`) - ohne diese
 Variable zeigen Open-Graph-Tags und Sitemap auf localhost.
+
+Remote: `origin` → https://github.com/Marcel1848/marketing-page.git
 
 ## Vor dem Livegang
 
