@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <PageHeroImage src={faq.image.src} alt={faq.image.alt} />
       <Container className="py-16 sm:py-24">
         <div className="mx-auto max-w-3xl">
-          <h1 className="font-serif text-[2rem] leading-tight tracking-tight text-balance">
+          <PageHeroImage src={faq.image.src} alt={faq.image.alt} />
+          <h1 className="mt-8 font-serif text-[2rem] leading-tight tracking-tight text-balance">
             {faq.headline}
           </h1>
           <div className="mt-10">

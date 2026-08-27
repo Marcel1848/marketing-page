@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function KlassischeMusikPage() {
   return (
     <>
-      <PageHeroImage src={klassischeMusik.image.src} alt={klassischeMusik.image.alt} />
       <Container className="py-16 sm:py-24">
         <div className="mx-auto max-w-3xl">
-          <h1 className="font-serif text-[2rem] leading-tight tracking-tight text-balance">
+          <PageHeroImage src={klassischeMusik.image.src} alt={klassischeMusik.image.alt} />
+          <h1 className="mt-8 font-serif text-[2rem] leading-tight tracking-tight text-balance">
             {klassischeMusik.headline}
           </h1>
           <p className="mt-8 text-base leading-relaxed text-ink-muted text-pretty">
