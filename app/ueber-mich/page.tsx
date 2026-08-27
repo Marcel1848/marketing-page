@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function UeberMichPage() {
   return (
     <>
-      <Container className="py-16 sm:py-24">
+      <Container className="pt-8 pb-16 sm:pb-24">
         <div className="mx-auto max-w-3xl">
           <PageHeroImage src={ueberMich.image.src} alt={ueberMich.image.alt} />
           <h1 className="mt-8 font-serif text-[2rem] leading-tight tracking-tight text-balance">
