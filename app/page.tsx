@@ -9,9 +9,32 @@ export const metadata: Metadata = {
   description: startseite.metaDescription,
 };
 
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: site.name,
+  description: site.description,
+  url: site.appUrl,
+  image: `${site.url}${startseite.image.src}`,
+  applicationCategory: "MusicApplication",
+  operatingSystem: "Web",
+  inLanguage: site.locale,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "CHF",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <Container className="pt-8 pb-16 sm:pb-24">
         <div className="mx-auto max-w-3xl">
           <PageHeroImage src={startseite.image.src} alt={startseite.image.alt} />
