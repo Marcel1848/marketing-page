@@ -104,7 +104,7 @@ export const faq = {
   items: [
     {
       question: "Was kostet die App «Klassik entdecken»?",
-      answer: "Nichts, sie ist gratis.",
+      answer: "Die App «Klassik entdecken» ist gratis.",
     },
     {
       question: "Warum 400 Werke und nicht 500?",
