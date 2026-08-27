@@ -15,6 +15,7 @@ export const site = {
     "Klassik entdecken waehlt per Zufallsprinzip ein Werk aus 400 bedeutenden Stuecken klassischer Musik zwischen 1600 und 2000.",
   // Platzhalter, bis die App-URL feststeht.
   appUrl: "#app",
+  copyrightHolder: "Marcel Eberle",
 } as const;
 
 export const nav = [

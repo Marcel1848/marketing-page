@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-gold/20 bg-surface-subtle">
       <Container className="flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-sans text-xs text-ink-muted">
-          &copy; {new Date().getFullYear()} {site.name}. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} {site.copyrightHolder}
         </p>
 
         <nav aria-label="Rechtliches">
