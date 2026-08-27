@@ -12,7 +12,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gold/20 bg-surface/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b-2 border-gold bg-surface/95 backdrop-blur">
       <Container className="flex h-20 items-center justify-between">
         <Link href="/" className="font-serif text-2xl font-bold tracking-wide text-gold">
           {site.name}
