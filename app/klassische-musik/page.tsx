@@ -38,7 +38,7 @@ export default function KlassischeMusikPage() {
           </p>
 
           <div className="mt-12 flex justify-center">
-            <ButtonLink href={site.appUrl}>{appCta}</ButtonLink>
+            <ButtonLink href={site.appUrl} target="_blank">{appCta}</ButtonLink>
           </div>
         </div>
       </Container>

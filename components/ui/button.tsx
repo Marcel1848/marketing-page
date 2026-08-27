@@ -8,13 +8,20 @@ export function ButtonLink({
   href,
   className,
   children,
+  target,
 }: {
   href: string;
   className?: string;
   children: React.ReactNode;
+  target?: "_blank";
 }) {
   return (
-    <Link href={href} className={cn(base, className)}>
+    <Link
+      href={href}
+      className={cn(base, className)}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    >
       {children}
     </Link>
   );
