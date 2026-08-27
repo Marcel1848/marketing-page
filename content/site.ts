@@ -39,7 +39,7 @@ export const startseite = {
   paragraphs: [
     "Es gibt mehr als bloss Bach, Mozart und Schubert. Lern neue und bisher unbekannte Werke der klassischen Musik kennen: mit der App «Klassik entdecken».",
     "Entdecke 400 repräsentative und bedeutende Werke aus 400 Jahren klassischer westlicher Musik zwischen 1600 und 2000. Freu dich auf Orchesterwerke, Konzerte, Kammermusik, Solomusik, geistliche und weltliche Vokalmusik, Oper sowie Ballett- und Bühnenmusik.",
-    "Kennst du bereits „Missa Votiva“ von Jan Dismas Zelenka, Sinfonie c-Moll von Joseph Martin Kraus oder „D’un matin de Printemps“ von Lili Boulanger?",
+    "Kennst du bereits «Missa Votiva» von Jan Dismas Zelenka, Sinfonie c-Moll von Joseph Martin Kraus oder «D’un matin de Printemps» von Lili Boulanger?",
     "Eben: Gib deinem musischen Ich mit dieser App neues Futter!",
   ],
 } as const;
@@ -104,7 +104,7 @@ export const faq = {
   headline: "FAQ",
   items: [
     {
-      question: "Was kostet die App „Klassik entdecken“?",
+      question: "Was kostet die App «Klassik entdecken»?",
       answer: "Nichts, sie ist gratis.",
     },
     {

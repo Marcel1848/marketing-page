@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { faq } from "@/content/site";
+import { faq, appCta, site } from "@/content/site";
 import { Container } from "@/components/ui/container";
+import { ButtonLink } from "@/components/ui/button";
 import { PageHeroImage } from "@/components/ui/page-hero-image";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 
@@ -20,6 +21,9 @@ export default function FaqPage() {
           </h1>
           <div className="mt-10">
             <FaqAccordion />
+          </div>
+          <div className="mt-12 flex justify-center">
+            <ButtonLink href={site.appUrl}>{appCta}</ButtonLink>
           </div>
         </div>
       </Container>
