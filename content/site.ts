@@ -13,8 +13,7 @@ export const site = {
   locale: "de-CH",
   description:
     "Klassik entdecken waehlt per Zufallsprinzip ein Werk aus 400 bedeutenden Stuecken klassischer Musik zwischen 1600 und 2000.",
-  // Platzhalter, bis die App-URL feststeht.
-  appUrl: "#app",
+  appUrl: "https://app-kappa-seven-94.vercel.app/",
   copyrightHolder: "Marcel Eberle",
 } as const;
 
