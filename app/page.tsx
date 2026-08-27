@@ -23,7 +23,7 @@ export default function HomePage() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <div className="mt-12 border-t border-gold/30 pt-12">
+          <div className="mt-12 flex justify-center">
             <ButtonLink href={site.appUrl}>{appCta}</ButtonLink>
           </div>
         </div>
