@@ -34,7 +34,7 @@ export const startseite = {
     src: "/images/startseite.webp",
     alt: "Junge Frau mit Kopfhörern hört lächelnd Musik",
   },
-  headline: "Klassik entdecken: 400 repräsentative und bedeutende Werke aus 400 Jahren",
+  headline: "App «Klassik entdecken»: 400 repräsentative und bedeutende Werke aus 400 Jahren",
   paragraphs: [
     "Es gibt mehr als bloss Bach, Mozart und Schubert. Lern neue und bisher unbekannte Werke der klassischen Musik kennen: mit der App «Klassik entdecken».",
     "Entdecke 400 repräsentative und bedeutende Werke aus 400 Jahren klassischer westlicher Musik zwischen 1600 und 2000. Freu dich auf Orchesterwerke, Konzerte, Kammermusik, Solomusik, geistliche und weltliche Vokalmusik, Oper sowie Ballett- und Bühnenmusik.",
