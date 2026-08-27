@@ -10,9 +10,26 @@ export const metadata: Metadata = {
   description: faq.metaDescription,
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
+      />
       <Container className="pt-8 pb-16 sm:pb-24">
         <div className="mx-auto max-w-3xl">
           <PageHeroImage src={faq.image.src} alt={faq.image.alt} />
