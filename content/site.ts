@@ -119,7 +119,10 @@ export const faq = {
   ],
 } as const;
 
+export const impressum = {
+  text: "Konzept und Inhalt von Marcel Eberle. Fotos von Unsplash und Pexels.",
+} as const;
+
 export const footerLinks = [
   { label: "Impressum", href: "/impressum" },
-  { label: "Datenschutz", href: "/datenschutz" },
 ] as const;
