@@ -2,42 +2,47 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { nav, site } from "@/content/site";
 import { Container } from "@/components/ui/container";
-import { ButtonLink } from "@/components/ui/button";
+import { cn } from "@/lib/cn";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/5 bg-surface/80 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-gold/20 bg-surface/95 backdrop-blur">
+      <Container className="flex h-20 items-center justify-between">
+        <Link href="/" className="font-serif text-xl tracking-wide">
           {site.name}
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Hauptnavigation">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-ink-muted transition-colors hover:text-ink"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-10 md:flex" aria-label="Hauptnavigation">
+          {nav.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "font-sans text-sm tracking-wide transition-colors",
+                  isActive ? "text-gold" : "text-ink-muted hover:text-ink",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
-
-        <div className="hidden md:block">
-          <ButtonLink href="#kontakt">Jetzt starten</ButtonLink>
-        </div>
 
         <button
           type="button"
-          className="rounded-md p-2 md:hidden"
+          className="rounded-md p-2 text-ink md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          aria-label={open ? "Menue schliessen" : "Menue oeffnen"}
+          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
           onClick={() => setOpen((v) => !v)}
         >
           <svg
@@ -58,21 +63,25 @@ export function Header() {
       </Container>
 
       {open && (
-        <div id="mobile-nav" className="border-t border-black/5 md:hidden">
+        <div id="mobile-nav" className="border-t border-gold/20 md:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-2 py-2 text-sm text-ink-muted hover:bg-surface-subtle hover:text-ink"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <ButtonLink href="#kontakt" className="mt-2">
-              Jetzt starten
-            </ButtonLink>
+            {nav.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "rounded-md px-2 py-2 font-sans text-sm tracking-wide",
+                    isActive ? "text-gold" : "text-ink-muted hover:text-ink",
+                  )}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </Container>
         </div>
       )}

@@ -4,7 +4,8 @@ Anleitung für Claude Code in diesem Repository.
 
 ## Projekt
 
-Marketing-Page (Single-Page mit Anker-Navigation) für ein CAS-Projekt.
+Marketing-Page für die App "Klassik entdecken" (CAS-Projekt): eigene Routen für
+Startseite, Über mich, Klassische Musik? und FAQ, verlinkt über den Header.
 Statisch gerendert, Deployment auf Vercel.
 
 **Stack:** Next.js 15 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS 4 · ESLint
@@ -24,7 +25,10 @@ npm run typecheck # tsc --noEmit
 ```
 app/                 Routen (App Router)
   layout.tsx         Root-Layout: Metadaten, Font, Header/Footer, Skip-Link
-  page.tsx           Startseite - reiht nur Sektionen aneinander
+  page.tsx           Startseite
+  ueber-mich/        Seite "Über mich"
+  klassische-musik/  Seite "Klassische Musik?"
+  faq/               Seite "FAQ" (mit Accordion)
   globals.css        Tailwind-Import + Design-Tokens im @theme-Block
   sitemap.ts         Sitemap
   robots.ts          robots.txt
@@ -33,11 +37,16 @@ app/                 Routen (App Router)
 components/
   header.tsx         Sticky-Header, einzige Client-Komponente (Mobile-Menü)
   footer.tsx
-  sections/          Je eine Datei pro Seitenabschnitt
-  ui/                Wiederverwendbare Bausteine: Container, Section, ButtonLink
-content/site.ts      Sämtliche Texte, Links, Preise, FAQ
+  sections/          faq-accordion.tsx (Client-Komponente der FAQ-Seite)
+  ui/                Wiederverwendbare Bausteine: Container, Section, ButtonLink,
+                     PageHeroImage
+content/site.ts      Sämtliche Texte, Links, Bilder, FAQ je Seite
 lib/cn.ts            Klassen-Merger
 ```
+
+Jede Inhaltsseite (Startseite, Über mich, Klassische Musik?, FAQ) ist eine eigene
+Route unter `app/`, keine Sektion auf einer gemeinsamen Startseite. Der Header
+verlinkt zwischen diesen Routen, nicht per Anker innerhalb einer Seite.
 
 ## Konventionen
 
@@ -49,23 +58,24 @@ Arrays. Das ist die wichtigste Regel in diesem Projekt.
 Browser-APIs zwingend nötig sind (aktuell einzig `components/header.tsx`).
 
 **Farben und Fonts über die Tokens im `@theme`-Block** in `app/globals.css`.
-Also `bg-brand-600`, `text-ink-muted`, `bg-surface-subtle` statt `bg-blue-600`
-oder Hex-Werte im JSX. Neue Farbe = neues Token, nicht Inline-Style.
+Also `bg-surface`, `text-ink-muted`, `border-gold` statt `bg-blue-600` oder
+Hex-Werte im JSX. Neue Farbe = neues Token, nicht Inline-Style.
 
-Der Seitenhintergrund ist himmelblau (`--color-surface`), abgesetzte Sektionen
-nutzen die hellere `--color-surface-subtle`, Karten stehen weiss darauf
-(`bg-card`). Deshalb kein `bg-white` im JSX — sonst lässt sich der Hintergrund
-später nicht mehr an einer Stelle umstellen.
+Der Seitenhintergrund ist nachtblau (`--color-surface: #0b1f33`, PRD-Vorgabe
+der App "Klassik entdecken"), abgesetzte Bereiche (z. B. Footer) nutzen die
+etwas hellere `--color-surface-subtle`. Schrift ist creme (`--color-ink`,
+gedämpft `--color-ink-muted`), Warmgold (`--color-gold`) ist die Schmuckfarbe
+für Zierlinien, Links, Buttons und Fokus-Ring.
 
-**Bei Farbänderungen den Kontrast nachrechnen.** Auf dem hellen Blau erreichen
-viele Grautöne die geforderten 4.5:1 nicht mehr; `--color-ink-muted` und die
-Eyebrow-Farbe (`text-brand-800`) sind bereits darauf abgestimmt.
+**Bei Farbänderungen den Kontrast nachrechnen.** Auf dem dunklen Nachtblau
+erreichen viele Farbtöne die geforderten 4.5:1 nicht automatisch;
+`--color-ink-muted` ist bereits mit > 7:1 darauf abgestimmt.
 
-**Neue Sektion anlegen:**
+**Neue Seite anlegen:**
 1. Inhalt als Export in `content/site.ts`
-2. Komponente unter `components/sections/<name>.tsx`, gewrappt in `<Section>`
-3. In `app/page.tsx` an der richtigen Stelle einhängen
-4. Bei Anker-Navigation: `id` an `<Section>` setzen und Eintrag in `nav` ergänzen
+2. Route unter `app/<name>/page.tsx` anlegen, ggf. mit `PageHeroImage` und
+   Komponenten aus `components/sections/`
+3. Eintrag in `nav` (für den Header) und in `app/sitemap.ts` ergänzen
 
 **Tailwind 4 hat keine `tailwind.config.js`.** Konfiguration läuft über
 `@theme` in der CSS-Datei. Keine Config-Datei anlegen.
@@ -120,8 +130,8 @@ Remote: `origin` → https://github.com/Marcel1848/marketing-page.git
 
 ## Vor dem Livegang
 
-- Platzhaltertexte in `content/site.ts` ersetzen
+- `site.appUrl` in `content/site.ts` (aktuell Platzhalter `#app`) auf die echte
+  URL der App "Klassik entdecken" setzen
 - Impressum und Datenschutzerklärung mit echten Inhalten füllen
 - Open-Graph-Bild unter `app/opengraph-image.png` (1200×630) ablegen
 - Favicon als `app/icon.png` ablegen
-- Testimonials nur mit schriftlicher Freigabe veröffentlichen

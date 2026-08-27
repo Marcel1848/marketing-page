@@ -1,0 +1,28 @@
+import type { Metadata } from "next";
+import { faq } from "@/content/site";
+import { Container } from "@/components/ui/container";
+import { PageHeroImage } from "@/components/ui/page-hero-image";
+import { FaqAccordion } from "@/components/sections/faq-accordion";
+
+export const metadata: Metadata = {
+  title: { absolute: faq.title },
+  description: faq.metaDescription,
+};
+
+export default function FaqPage() {
+  return (
+    <>
+      <PageHeroImage src={faq.image.src} alt={faq.image.alt} />
+      <Container className="py-16 sm:py-24">
+        <div className="mx-auto max-w-3xl">
+          <h1 className="font-serif text-[2rem] leading-tight tracking-tight text-balance">
+            {faq.headline}
+          </h1>
+          <div className="mt-10">
+            <FaqAccordion />
+          </div>
+        </div>
+      </Container>
+    </>
+  );
+}

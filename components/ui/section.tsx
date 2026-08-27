@@ -26,14 +26,14 @@ export function Section({
         {(eyebrow || title || subtitle) && (
           <div className="mx-auto max-w-2xl text-center">
             {eyebrow && (
-              <p className="text-sm font-semibold tracking-wide text-brand-800 uppercase">
+              <p className="text-sm font-semibold tracking-wide text-gold uppercase">
                 {eyebrow}
               </p>
             )}
             {title && (
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+              <h1 className="mt-3 font-serif text-[2rem] leading-tight tracking-tight text-balance">
                 {title}
-              </h2>
+              </h1>
             )}
             {subtitle && (
               <p className="mt-4 text-lg text-ink-muted text-pretty">{subtitle}</p>

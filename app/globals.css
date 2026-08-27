@@ -1,36 +1,27 @@
 @import "tailwindcss";
 
 /* Design-Tokens: hier zentral anpassen, nicht in einzelnen Komponenten.
-   Alles darunter ist als Tailwind-Utility verfuegbar, z. B. bg-brand-600, text-ink. */
+   Alles darunter ist als Tailwind-Utility verfuegbar, z. B. bg-surface, text-ink. */
 @theme {
-  --color-brand-50: oklch(0.97 0.02 250);
-  --color-brand-100: oklch(0.93 0.04 250);
-  --color-brand-200: oklch(0.87 0.07 250);
-  --color-brand-300: oklch(0.79 0.11 250);
-  --color-brand-400: oklch(0.7 0.15 250);
-  --color-brand-500: oklch(0.62 0.18 250);
-  --color-brand-600: oklch(0.54 0.19 250);
-  --color-brand-700: oklch(0.46 0.17 250);
-  --color-brand-800: oklch(0.38 0.13 250);
-  --color-brand-900: oklch(0.3 0.09 250);
+  /* Nachtblau als Seitenhintergrund (PRD-Vorgabe). */
+  --color-surface: #0b1f33;
+  /* Etwas heller fuer abgesetzte Sektionen und den Footer. */
+  --color-surface-subtle: #14293f;
 
-  --color-ink: oklch(0.22 0.02 260);
-  /* Bewusst dunkler als ein uebliches Grau: Sekundaertext muss auch auf dem
-     himmelblauen Hintergrund noch 4.5:1 Kontrast erreichen (WCAG AA). */
-  --color-ink-muted: oklch(0.42 0.03 260);
+  /* Creme als Schriftfarbe (PRD-Vorgabe). */
+  --color-ink: #f5e9de;
+  /* Gedaempftes Creme fuer Sekundaertext; auf --color-surface > 7:1 Kontrast (WCAG AA). */
+  --color-ink-muted: #c9beb2;
 
-  /* Himmelblau (entspricht #87CEEB) als Seitenhintergrund. */
-  --color-surface: oklch(0.815 0.082 226);
-  /* Hellere Variante fuer abgesetzte Sektionen und den Footer. */
-  --color-surface-subtle: oklch(0.88 0.055 226);
-  /* Karten heben sich weiss vom blauen Hintergrund ab. */
-  --color-card: oklch(1 0 0);
+  /* Warmgold als Schmuckfarbe fuer Zierlinien, Akzente und Fokus (PRD-Vorgabe). */
+  --color-gold: #c89b3c;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
-  /* Auch auf html setzen, damit beim Overscroll kein weisser Rand aufblitzt. */
+  /* Auch auf html setzen, damit beim Overscroll kein heller Rand aufblitzt. */
   html {
     scroll-behavior: smooth;
     background-color: var(--color-surface);

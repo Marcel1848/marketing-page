@@ -8,9 +8,7 @@ export default function NotFound() {
       subtitle="Die aufgerufene Seite existiert nicht oder wurde verschoben."
     >
       <div className="flex justify-center">
-        <ButtonLink href="/" size="lg">
-          Zurueck zur Startseite
-        </ButtonLink>
+        <ButtonLink href="/">Zurueck zur Startseite</ButtonLink>
       </div>
     </Section>
   );
