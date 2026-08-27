@@ -113,7 +113,7 @@ export const faq = {
     },
     {
       question: "Wer hat diese 400 Werke der klassischen Musik ausgesucht?",
-      answer: "ChatGPT, im Modus High und via Deep Research.",
+      answer: "Diese Werkliste hat ChatGPT erstellt, in den Modi Chat Hoch und Work Sol.",
     },
   ],
 } as const;
