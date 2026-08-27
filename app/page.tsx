@@ -7,6 +7,16 @@ import { PageHeroImage } from "@/components/ui/page-hero-image";
 export const metadata: Metadata = {
   title: { absolute: startseite.title },
   description: startseite.metaDescription,
+  openGraph: {
+    title: startseite.title,
+    description: startseite.metaDescription,
+    images: [{ url: startseite.image.src, alt: startseite.image.alt }],
+  },
+  twitter: {
+    title: startseite.title,
+    description: startseite.metaDescription,
+    images: [startseite.image.src],
+  },
 };
 
 const softwareApplicationSchema = {

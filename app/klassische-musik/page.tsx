@@ -7,6 +7,16 @@ import { PageHeroImage } from "@/components/ui/page-hero-image";
 export const metadata: Metadata = {
   title: { absolute: klassischeMusik.title },
   description: klassischeMusik.metaDescription,
+  openGraph: {
+    title: klassischeMusik.title,
+    description: klassischeMusik.metaDescription,
+    images: [{ url: klassischeMusik.image.src, alt: klassischeMusik.image.alt }],
+  },
+  twitter: {
+    title: klassischeMusik.title,
+    description: klassischeMusik.metaDescription,
+    images: [klassischeMusik.image.src],
+  },
 };
 
 export default function KlassischeMusikPage() {

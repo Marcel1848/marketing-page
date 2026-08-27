@@ -8,6 +8,16 @@ import { FaqAccordion } from "@/components/sections/faq-accordion";
 export const metadata: Metadata = {
   title: { absolute: faq.title },
   description: faq.metaDescription,
+  openGraph: {
+    title: faq.title,
+    description: faq.metaDescription,
+    images: [{ url: faq.image.src, alt: faq.image.alt }],
+  },
+  twitter: {
+    title: faq.title,
+    description: faq.metaDescription,
+    images: [faq.image.src],
+  },
 };
 
 const faqSchema = {

@@ -7,6 +7,16 @@ import { PageHeroImage } from "@/components/ui/page-hero-image";
 export const metadata: Metadata = {
   title: { absolute: ueberMich.title },
   description: ueberMich.metaDescription,
+  openGraph: {
+    title: ueberMich.title,
+    description: ueberMich.metaDescription,
+    images: [{ url: ueberMich.image.src, alt: ueberMich.image.alt }],
+  },
+  twitter: {
+    title: ueberMich.title,
+    description: ueberMich.metaDescription,
+    images: [ueberMich.image.src],
+  },
 };
 
 export default function UeberMichPage() {
