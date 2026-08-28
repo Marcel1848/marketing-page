@@ -4,7 +4,7 @@ import { useState } from "react";
 import { faq } from "@/content/site";
 
 export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="divide-y divide-gold/25 border-y border-gold/25">
